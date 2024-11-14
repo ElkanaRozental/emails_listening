@@ -8,9 +8,10 @@ email_blueprint = Blueprint('menu', __name__)
 @email_blueprint.route('', methods=['POST'])
 def fetch_emails():
     try:
-        email = request.json
-        produce_email(email)
+        email = request.get_json()
         print(email)
+        produce_email(email)
+
         return jsonify({
             **email,
         }), 200

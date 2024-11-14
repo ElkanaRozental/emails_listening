@@ -15,6 +15,7 @@ def get_user_by_user_id(user_id: int):
 
 
 def insert_user(user: User) -> Result[User, str]:
+    print(user.name)
     with session_factory() as session:
         try:
             session.add(user)

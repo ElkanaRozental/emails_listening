@@ -7,7 +7,6 @@ from app.db.postgres_database import Base
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, nullable=False)
     name = Column(String(100), nullable=False)
     email = Column(String(100), nullable=False)
     ip_address = Column(String(100), nullable=False)

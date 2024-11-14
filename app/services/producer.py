@@ -33,14 +33,19 @@ def produce_email(email):
             value=message_to_send,
             key=message_to_send['email'].encode('utf-8')
         )
+        print(message_to_send)
+
         producer.flush()
 
     if is_contain_explosive(message_to_send):
+
         producer.send(
             os.environ['TOPIC_EXPLOSIVE_MESSAGE_NAME'],
             value=message_to_send,
             key=message_to_send['email'].encode('utf-8')
         )
+        print(message_to_send)
+
         producer.flush()
 
 
