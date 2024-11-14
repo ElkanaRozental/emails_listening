@@ -49,4 +49,6 @@ def consume_explosive_email():
 
 
 if __name__ == '__main__':
+    consume_hostages_email()
+    consume_explosive_email()
     consume_non_filter_email()

@@ -1,8 +1,15 @@
+from sqlalchemy import Result
+
 from app.db.mongo_database import emails_collection
+from app.db.postgres_database import session_factory
+from app.models.User import User
 
 
 def get_all_emails():
-    return list(emails_collection.find())
+    try:
+        return list(emails_collection.find())
+    except Exception as e:
+        print(str(e))
 
 
 def insert_email_to_mongo(email):
@@ -10,3 +17,6 @@ def insert_email_to_mongo(email):
         emails_collection.insert_one(email)
     else:
         return
+
+
+
