@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from kafka import KafkaConsumer
 
 from app.repository.emails_repository import insert_email_to_mongo
-from app.repository.postgres_repository import insert_all_data
 
 load_dotenv(verbose=True)
 

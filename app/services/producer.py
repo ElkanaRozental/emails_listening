@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from flask import Flask
 from kafka import KafkaProducer
 
-from app.services.email_service import check_suspect_email, change_sentence_index, is_contain_hostage, \
+from app.services.email_service import change_sentence_index, is_contain_hostage, \
     is_contain_explosive
 
 load_dotenv(verbose=True)

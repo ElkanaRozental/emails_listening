@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from kafka import KafkaConsumer
 
-from app.repository.postgres_repository import insert_all_data
+from app.repository.postgres_repository import insert_explosive_data
 
 load_dotenv(verbose=True)
 
@@ -20,7 +20,7 @@ def consume_explosive_email():
 
     for message in consumer:
         print(f"Received: {message.key}: {message.value}")
-        insert_all_data(message.value)
+        insert_explosive_data(message.value)
 
 
 if __name__ == '__main__':

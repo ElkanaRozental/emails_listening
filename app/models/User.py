@@ -15,3 +15,6 @@ class User(Base):
     device = relationship("Device", back_populates="user", uselist=False)
     hostage_sentences = relationship("SentenceHostage", back_populates="user")
     explosive_sentences = relationship("SentenceExplosive", back_populates="user")
+
+    def __repr__(self):
+        return f"<User(id={self.id}, username={self.username}, email={self.email} ip_address={self.ip_address}, location={self.location}, device={self.device}, hostage_sentences={self.hostage_sentences}, explosive_sentence={self.explosive_sentences} >"

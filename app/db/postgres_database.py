@@ -10,7 +10,12 @@ _session_factory = sessionmaker(bind=engine)
 
 Base = declarative_base()
 
+from app.models import User, SentenceHostage, SentenceExplosive, Device, Location
+
 
 def session_factory():
-    Base.metadata.create_all(engine)
     return _session_factory()
+
+
+def init_db():
+    Base.metadata.create_all(engine)
