@@ -1,0 +1,1 @@
+DB_POSTGRES_URL = 'postgresql://admin:1234@172.19.116.76/hamas_emails'

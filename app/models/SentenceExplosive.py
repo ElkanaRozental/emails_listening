@@ -11,4 +11,4 @@ class SentenceExplosive(Base):
     created_at = Column(String(100), nullable=False)
 
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    user = relationship("User", back_populates="sentences")
+    user = relationship("User", back_populates="explosive_sentences")

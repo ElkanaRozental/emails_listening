@@ -8,9 +8,9 @@ from app.repository.user_repository import get_user_by_user_id
 
 
 def insert_explosive_sentence(sentence: SentenceExplosive) -> Result[SentenceExplosive, str]:
-    maybe_user = get_user_by_user_id(sentence.user_id)
-    if maybe_user is Nothing:
-        return Failure(f"Missing user")
+    # maybe_user = get_user_by_user_id(sentence.user_id)
+    # if maybe_user is Nothing:
+    #     return Failure(f"Missing user")
     with session_factory() as session:
         try:
             session.add(sentence)

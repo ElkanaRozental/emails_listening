@@ -2,7 +2,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('postgresql://postgres:1234@localhost/users_orm')
+from app.settings.postgers_config import DB_POSTGRES_URL
+
+engine = create_engine(DB_POSTGRES_URL)
 # use session_factory() to get a new Session
 _session_factory = sessionmaker(bind=engine)
 

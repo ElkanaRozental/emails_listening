@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from kafka import KafkaConsumer
 
 from app.repository.emails_repository import insert_email_to_mongo
+from app.repository.postgres_repository import insert_all_data
 
 load_dotenv(verbose=True)
 
@@ -32,7 +33,7 @@ def consume_hostages_email():
 
     for message in consumer:
         print(f"Received: {message.key}: {message.value}")
-        insert_email_to_mongo(message.value)
+        insert_all_data(message.value)
 
 
 def consume_explosive_email():
@@ -45,10 +46,11 @@ def consume_explosive_email():
 
     for message in consumer:
         print(f"Received: {message.key}: {message.value}")
-        insert_email_to_mongo(message.value)
+        insert_all_data(message.value)
 
 
 if __name__ == '__main__':
+    consume_non_filter_email()
     consume_hostages_email()
     consume_explosive_email()
-    consume_non_filter_email()
+

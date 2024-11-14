@@ -13,10 +13,12 @@ def get_all_emails():
 
 
 def insert_email_to_mongo(email):
-    if email not in get_all_emails():
-        emails_collection.insert_one(email)
-    else:
-        return
-
+    try:
+        if email not in get_all_emails():
+            emails_collection.insert_one(email)
+        else:
+            return
+    except Exception as e:
+        print(str(e))
 
 

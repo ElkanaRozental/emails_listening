@@ -14,4 +14,5 @@ class User(Base):
 
     location = relationship("Location", back_populates="user", uselist=False)
     device = relationship("Device", back_populates="user", uselist=False)
-    sentences = relationship("Sentence", back_populates="user")
+    hostage_sentences = relationship("SentenceHostage", back_populates="user")
+    explosive_sentences = relationship("SentenceExplosive", back_populates="user")

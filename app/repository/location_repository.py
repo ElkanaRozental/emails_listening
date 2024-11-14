@@ -7,10 +7,10 @@ from app.models.Location import Location
 from app.repository.user_repository import get_user_by_user_id
 
 
-def insert_device(location: Location) -> Result[Location, str]:
-    maybe_user = get_user_by_user_id(location.user_id)
-    if maybe_user is Nothing:
-        return Failure(f"Missing user")
+def insert_location(location: Location) -> Result[Location, str]:
+    # maybe_user = get_user_by_user_id(location.user_id)
+    # if maybe_user is Nothing:
+    #     return Failure(f"Missing user")
     with session_factory() as session:
         try:
             session.add(location)

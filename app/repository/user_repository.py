@@ -20,7 +20,7 @@ def insert_user(user: User) -> Result[User, str]:
             session.add(user)
             session.commit()
             session.refresh(user)
-            return Success(user)
+            return Success(user.id).value_or(None)
         except SQLAlchemyError as e:
             session.rollback()
             return Failure(str(e))
